@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h1><strong>Titre : </strong>{{ post.title }}</h1>
+        <h2><strong>Contenu : </strong>{{ post.content }}</h2>
+        <h3><strong>Nombre de Like/Dislike : </strong>{{ post.loveIts }}</h3>
+        <h4><strong>Date de création : </strong>{{ post.createdAt.seconds * 1000 | date: 'short' }}</h4>
+        <button class="btn btn-default" (click)="onBack()">Retour</button>
+    </div>
+</div>

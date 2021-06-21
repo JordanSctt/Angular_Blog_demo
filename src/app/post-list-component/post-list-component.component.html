@@ -1,0 +1,29 @@
+  <div class="row">
+        <div class="col-xs-12">
+          <h2>Posts</h2>
+           <div class="list-group">
+                <div *ngFor="let post of posts; let i = index" 
+                [ngClass]="{'list-group-item': post.loveIts === 0,
+                'list-group-item-success' : post.loveIts > 0,
+                'list-group-item-danger' : post.loveIts < 0}">
+                        <div class="title_date"> 
+                                <h2> {{ post.title }} </h2>
+                                <p> {{ post.createdAt.seconds * 1000 | date: 'short' }}</p>
+                                <button class="btn btn-default pull-right" (click)="onDeletePost(post)" title="Supprimer le post">
+                                        <span class="glyphicon glyphicon-minus"></span>
+                                </button>
+                        </div>     
+                        <p> {{ post.content }} </p>
+                        <a (click)="onViewPost(i)" >Détail</a>
+                        <div class="button">
+                                <button Class="btn btn-success"
+                                        (click)="onLike(post)">Like</button>
+                                <button Class="btn btn-danger"
+                                        (click)="onDontLike(post)">Don't like</button>
+                        </div>
+                        <p> Total des like/dislike : <strong> {{ post.loveIts }} </strong></p>
+                </div>
+                <button class="btn btn-primary" (click)="onNewPost()">Nouveau post</button>
+        </div>
+      </div>
+</div>
